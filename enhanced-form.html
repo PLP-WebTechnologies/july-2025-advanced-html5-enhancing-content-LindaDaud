@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enhanced HTML5 Content & Mastering Forms</title>
+  <style>
+    :root { --gap: 1rem; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; line-height: 1.5; margin: 0; color: #222; background: #fafafa; }
+    header, main, footer { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    header { background: #0f172a; color: #fff; }
+    nav a { color: #cbd5e1; margin-right: .75rem; text-decoration: none; }
+    nav a:hover, nav a:focus { text-decoration: underline; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: 2fr 1fr; }
+    }
+    section, article, aside { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1rem; }
+    h1, h2, h3 { line-height: 1.2; }
+    figure { margin: 0; }
+    figure img, video { max-width: 100%; border-radius: 10px; }
+
+    table { width: 100%; border-collapse: collapse; }
+    caption { text-align: left; font-weight: 600; margin-bottom: .5rem; }
+    th, td { border: 1px solid #e5e7eb; padding: .5rem .625rem; text-align: left; }
+    thead th { background: #f1f5f9; }
+
+    form { display: grid; gap: var(--gap); }
+    fieldset { border: 1px solid #e5e7eb; border-radius: 10px; padding: 1rem; }
+    legend { font-weight: 600; padding: 0 .35rem; }
+    .two-col { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+    @media (min-width: 700px) { .two-col { grid-template-columns: 1fr 1fr; } }
+    label { display: block; font-weight: 600; margin-bottom: .25rem; }
+    input, select, textarea, button { width: 100%; padding: .625rem .75rem; border: 1px solid #cbd5e1; border-radius: 10px; font: inherit; }
+    input:focus, select:focus, textarea:focus { outline: 3px solid #93c5fd; border-color: #60a5fa; }
+    .hint { font-size: .9rem; color: #475569; }
+    .inline { display: inline-flex; align-items: center; gap: .5rem; }
+    .actions { display: flex; gap: .75rem; }
+    .btn { cursor: pointer; border: none; }
+    .btn.primary { background: #0ea5e9; color: #fff; }
+    .btn.secondary { background: #e2e8f0; }
+
+    /* HTML5 validation (basic visual cue) */
+    input:required:invalid, select:required:invalid, textarea:required:invalid { border-color: #ef4444; }
+    input:required:valid, select:required:valid, textarea:required:valid { border-color: #16a34a; }
+
+    footer { color: #334155; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .skip-link { position: absolute; left: -999px; top: -999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; background: #fff; border: 2px solid #0ea5e9; border-radius: 8px; padding: .5rem .75rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header role="banner">
+    <h1>Assignment: Enhancing HTML5 Content & Mastering Forms</h1>
+    <nav aria-label="Primary">
+      <a href="#overview">Overview</a>
+      <a href="#packages">Packages</a>
+      <a href="#media">Media</a>
+      <a href="#signup">Form</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="grid">
+      <article id="overview">
+        <h2>Overview</h2>
+        <p>This single page demonstrates structured HTML5 content using semantic tags, lists, a table, and media; plus a complete, accessible form that uses modern input types and built‑in validation.</p>
+
+        <section aria-labelledby="objectives">
+          <h3 id="objectives">Objectives</h3>
+          <ul>
+            <li>Use semantic elements for structure (<code>header</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code>, <code>footer</code>).</li>
+            <li>Include a variety of lists, a table, and embedded media.</li>
+            <li>Build a complete HTML5 form with inputs, selects, radios, checkboxes, and a file upload.</li>
+            <li>Apply attributes like <code>placeholder</code>, <code>required</code>, <code>autocomplete</code>, and <code>readonly</code>.</li>
+            <li>Use validation constraints (<code>type</code>, <code>pattern</code>, <code>min</code>/<code>max</code>, <code>step</code>, <code>minlength</code>/<code>maxlength</code>).</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="tips">
+          <h3 id="tips">Helpful Definitions (Description List)</h3>
+          <dl>
+            <dt>Semantic HTML</dt>
+            <dd>Markup that conveys meaning and structure, improving accessibility and SEO.</dd>
+            <dt>Constraint Validation</dt>
+            <dd>Browser‑built rules triggered by attributes like <code>required</code> and <code>pattern</code>.</dd>
+          </dl>
+        </section>
+      </article>
+
+      <aside>
+        <h2>Quick Tips</h2>
+        <ol>
+          <li>Label every control using <code>&lt;label for&gt;</code>.</li>
+          <li>Group related fields with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>.</li>
+          <li>Use <code>autocomplete</code> tokens for better UX (e.g. <code>given-name</code>).</li>
+          <li>Use <code>aria-describedby</code> to connect hints to inputs.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <section id="packages">
+      <h2>Package Comparison (Table)</h2>
+      <table>
+        <caption>Hosting Packages</caption>
+        <thead>
+          <tr>
+            <th scope="col">Plan</th>
+            <th scope="col">Storage</th>
+            <th scope="col">Bandwidth</th>
+            <th scope="col">Price / mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Starter</th>
+            <td>10 GB</td>
+            <td>100 GB</td>
+            <td>$3.99</td>
+          </tr>
+          <tr>
+            <th scope="row">Pro</th>
+            <td>50 GB</td>
+            <td>500 GB</td>
+            <td>$9.99</td>
+          </tr>
+          <tr>
+            <th scope="row">Business</th>
+            <td>200 GB</td>
+            <td>Unlimited</td>
+            <td>$19.99</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="media">
+      <h2>Media</h2>
+      <div class="two-col">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1600&auto=format&fit=crop" alt="Laptop on a desk with code on the screen." />
+          <figcaption>A figure with an image and caption.</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="metadata" poster="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            Sorry, your browser doesn’t support embedded videos.
+          </video>
+          <figcaption>A sample video using HTML5 <code>&lt;video&gt;</code>.</figcaption>
+        </figure>
+      </div>
+      <figure style="margin-top: 1rem;">
+        <audio controls>
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <figcaption>An example of the HTML5 <code>&lt;audio&gt;</code> element.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="form-title">
+      <h2 id="form-title">Sign Up (Complete HTML5 Form)</h2>
+      <form id="signup" action="#" method="post" autocomplete="on">
+        <!-- Personal Info -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <div class="two-col">
+            <div>
+              <label for="firstName">First name</label>
+              <input id="firstName" name="firstName" type="text" placeholder="e.g., Jane" required autocomplete="given-name" minlength="2" maxlength="40" />
+              <p id="firstNameHint" class="hint">Use your legal first name.</p>
+            </div>
+            <div>
+              <label for="lastName">Last name</label>
+              <input id="lastName" name="lastName" type="text" placeholder="e.g., Doe" required autocomplete="family-name" minlength="2" maxlength="60" />
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required autocomplete="email" />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+254700123456" required autocomplete="tel" inputmode="tel" pattern="^(\+?\d{7,15})$" aria-describedby="phoneHint" />
+              <p id="phoneHint" class="hint">Digits only; include country code (e.g., +254).</p>
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <label for="dob">Date of birth</label>
+              <input id="dob" name="dob" type="date" required />
+            </div>
+            <div>
+              <label for="favColor">Favorite color</label>
+              <input id="favColor" name="favColor" type="color" value="#0ea5e9" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Address -->
+        <fieldset>
+          <legend>Address</legend>
+          <div>
+            <label for="address1">Address line 1</label>
+            <input id="address1" name="address1" type="text" placeholder="Street address" required autocomplete="address-line1" />
+          </div>
+          <div class="two-col">
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" placeholder="Nairobi" required autocomplete="address-level2" />
+            </div>
+            <div>
+              <label for="country">Country</label>
+              <select id="country" name="country" required autocomplete="country-name">
+                <option value="" selected disabled>Choose…</option>
+                <option>Kenya</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>India</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="website">Personal website (optional)</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" autocomplete="url" />
+          </div>
+        </fieldset>
+
+        <!-- Account Preferences -->
+        <fieldset>
+          <legend>Account Preferences</legend>
+          <div class="two-col">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="4–16 characters" required minlength="4" maxlength="16" pattern="^[A-Za-z0-9_]+$" aria-describedby="userHint" autocomplete="username" />
+              <p id="userHint" class="hint">Letters, numbers, and underscores only.</p>
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password" />
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <label for="experience">Experience level</label>
+              <input id="experience" name="experience" type="range" min="0" max="10" step="1" value="5" oninput="level.value = experience.value" />
+              <div class="inline"><output id="level" for="experience">5</output><span class="hint">0 = New, 10 = Pro</span></div>
+            </div>
+            <div>
+              <label for="language">Favorite language</label>
+              <input id="language" name="language" list="languages" placeholder="Start typing…" />
+              <datalist id="languages">
+                <option value="HTML"></option>
+                <option value="CSS"></option>
+                <option value="JavaScript"></option>
+                <option value="Python"></option>
+              </datalist>
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <span class="sr-only" id="plan-group">Choose a plan</span>
+              <label class="inline"><input type="radio" name="plan" value="starter" required aria-describedby="plan-group" /> Starter</label>
+              <label class="inline"><input type="radio" name="plan" value="pro" /> Pro</label>
+              <label class="inline"><input type="radio" name="plan" value="business" /> Business</label>
+            </div>
+            <div>
+              <label class="inline"><input type="checkbox" name="newsletter" /> Subscribe to newsletter</label>
+              <label class="inline"><input type="checkbox" name="terms" required /> I agree to the Terms</label>
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <label for="avatar">Upload profile photo</label>
+              <input id="avatar" name="avatar" type="file" accept="image/*" />
+            </div>
+            <div>
+              <label for="ref">Referral Code (read‑only)</label>
+              <input id="ref" name="ref" type="text" value="STUDENT-2025" readonly />
+            </div>
+          </div>
+          <div>
+            <label for="bio">Short bio</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="Tell us a bit about yourself…" maxlength="250"></textarea>
+            <p class="hint">Max 250 characters.</p>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">Submit</button>
+          <button class="btn secondary" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Example University — HTML5 Assignment Demo.</p>
+  </footer>
+</body>
+</html>
